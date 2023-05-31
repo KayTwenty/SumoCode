@@ -25,4 +25,4 @@ git clone https://github.com/KayTwenty/SumoCode.git
 7. Feel free to modify and enhance the code as needed for your specific requirements.
 
 ## License
-The SumoCode repository is licensed under the [__MIT License__](). Feel free to use, modify, and distribute the code as permitted by the license.
+The SumoCode repository is licensed under the [__MIT License__](https://github.com/KayTwenty/SumoCode/blob/main/LICENSE). Feel free to use, modify, and distribute the code as permitted by the license.
