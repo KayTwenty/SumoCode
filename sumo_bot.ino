@@ -8,12 +8,6 @@ int enb = 3;
 int in2 = 5;
 int in1 = 7;
 
-// MOTOR RIGHT NEGATIVE = 2
-// MOTOR RIGHT POSITIVE = 4
-
-// MOTOR LEFT NEGATIVE = 5
-// MOTOR LEFT POSITIVE = 7
-
 void setup() {
   // Set the motor control pins as output
   pinMode(in1, OUTPUT);
@@ -26,11 +20,13 @@ void setup() {
   // Start the serial connection at 9600 Bauds
   Serial.begin(9600);
 
+  // set the speed control (255 Max) for the motors
   analogWrite(ena, 255);  // LEFT
-  analogWrite(enb, 180);  // RIGHT
+  analogWrite(enb, 180);  // RIGHT (-75 power) 
 }
 
 void loop() {
+  // Our debug code to prove that the bot is running
   moveForward();
   delay(6000);
   moveBackward();
@@ -42,6 +38,7 @@ void loop() {
   stopMoving();
 }
 
+// Bot moves forward
 void moveForward() {
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
@@ -49,6 +46,7 @@ void moveForward() {
   digitalWrite(in4, LOW);
 }
 
+// Bot moves backwards
 void moveBackward() {
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
@@ -56,6 +54,7 @@ void moveBackward() {
   digitalWrite(in4, HIGH);
 }
 
+// Bot turns left
 void moveLeft() {
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
@@ -63,6 +62,7 @@ void moveLeft() {
   digitalWrite(in4, LOW);
 }
 
+// Bot turns right
 void moveRight() {
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
@@ -70,6 +70,7 @@ void moveRight() {
   digitalWrite(in4, HIGH);
 }
 
+// Bot stops moving
 void stopMoving() {
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);
