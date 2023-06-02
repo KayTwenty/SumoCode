@@ -30,15 +30,23 @@ void setup() {
 }
 
 void loop() {
-  // Debug code to demonstrate the movement of the bot
+  // Go straight for a couple of seconds
   moveForward();
-  delay(6000);
+  delay(2000);
+
+  // Move backward for a couple of seconds
   moveBackward();
-  delay(1000);
+  delay(2000);
+
+  // Turn left
   moveLeft();
-  delay(4000);
+  delay(1000);
+
+  // Turn right
   moveRight();
-  delay(4000);
+  delay(1000);
+
+  // Stop moving
   stopMoving();
 }
 
