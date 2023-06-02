@@ -10,7 +10,7 @@ const int in1Pin = 7;
 
 // Speed Values
 const int leftSpeed = 255;   // Max speed for the left motor
-const int rightSpeed = 180;  // Reduced speed for the right motor
+const int rightSpeed = 250;  // Reduced speed for the right motor
 
 void setup() {
   // Set the motor control pins as output
@@ -72,7 +72,7 @@ void moveLeft() {
   digitalWrite(in2Pin, HIGH);
   digitalWrite(in3Pin, HIGH);
   digitalWrite(in4Pin, LOW);
-  delay(1000);
+  delay(500);
   stopMoving(); 
 }
 
