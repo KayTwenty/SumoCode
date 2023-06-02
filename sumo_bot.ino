@@ -17,10 +17,8 @@ const int leftSpeed = 255;   // Max speed for the left motor
 const int rightSpeed = 250;  // Reduced speed for the right motor
 
 // Obstacle tracking variables
-int targetDistance = 20; // Doesn't work
-int leftDistance = 0; // Not implemented
-int rightDistance = 0; // Not implemented
-bool targetDetected = false; // Not implemented
+int targetDistance = 30;
+bool targetDetected = false;
 
 void setup() {
   // Set the motor control pins as output
@@ -44,36 +42,19 @@ void setup() {
 }
 
 void loop() {
-
   // Check for obstacle
   if (detectObstacle()) {
-    delay(500);
-    moveForward();
+    if (targetDetected) {
+      moveForward();
+    } else {
+      delay(500);
+      hardRotate();
+    }
   } else {
-    hardRotate();
+    stopMoving();
   }
 
   delay(100);
-
-  /*
-  // Go straight for a couple of seconds
-  moveForward();
-  delay(2000);
-
-  // Move backward for a couple of seconds
-  moveBackward();
-  delay(2000);
-
-  // Turn left
-  moveLeft();
-  delay(1000);
-
-  // Turn right
-  moveRight();
-  delay(1000);
-
-  // Stop moving
-  stopMoving(); */
 }
 
 // Function to move the bot forward
@@ -149,9 +130,11 @@ bool detectObstacle() {
   printDistance(distance);
 
   // Check if an obstacle is within a certain range
-  if (distance > 0 && distance < 30) {
+  if (distance > 0 && distance < targetDistance) {
+    targetDetected = true;
     return true;  // Obstacle detected
   } else {
+    targetDetected = false;
     return false;  // No obstacle detected
   }
 }
