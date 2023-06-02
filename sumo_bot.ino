@@ -64,6 +64,8 @@ void moveLeft() {
   digitalWrite(in2Pin, HIGH);
   digitalWrite(in3Pin, HIGH);
   digitalWrite(in4Pin, LOW);
+  delay(1000);
+  stopMoving(); 
 }
 
 // Function to turn the bot right
@@ -72,6 +74,8 @@ void moveRight() {
   digitalWrite(in2Pin, LOW);
   digitalWrite(in3Pin, LOW);
   digitalWrite(in4Pin, HIGH);
+  delay(1000);
+  stopMoving(); 
 }
 
 // Function to stop the bot
