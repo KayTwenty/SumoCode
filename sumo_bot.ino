@@ -1,32 +1,36 @@
-// Motor RIGHT (Needs to reworked)
-int ena = 6;
-int in4 = 2;
-int in3 = 4;
+// Motor Pins - RIGHT
+const int enaPin = 6;
+const int in4Pin = 2;
+const int in3Pin = 4;
 
-// Motor LEFT (Needs to reworked)
-int enb = 3;
-int in2 = 5;
-int in1 = 7;
+// Motor Pins - LEFT
+const int enbPin = 3;
+const int in2Pin = 5;
+const int in1Pin = 7;
+
+// Speed Values
+const int leftSpeed = 255;   // Max speed for the left motor
+const int rightSpeed = 180;  // Reduced speed for the right motor
 
 void setup() {
   // Set the motor control pins as output
-  pinMode(in1, OUTPUT);
-  pinMode(in2, OUTPUT);
-  pinMode(in3, OUTPUT);
-  pinMode(in4, OUTPUT);
-  pinMode(ena, OUTPUT);
-  pinMode(enb, OUTPUT);
+  pinMode(in1Pin, OUTPUT);
+  pinMode(in2Pin, OUTPUT);
+  pinMode(in3Pin, OUTPUT);
+  pinMode(in4Pin, OUTPUT);
+  pinMode(enaPin, OUTPUT);
+  pinMode(enbPin, OUTPUT);
 
   // Start the serial connection at 9600 Bauds
   Serial.begin(9600);
 
-  // set the speed control (255 Max) for the motors
-  analogWrite(ena, 255);  // LEFT
-  analogWrite(enb, 180);  // RIGHT (-75 power) 
+  // Set the speed control (0-255) for the motors
+  analogWrite(enaPin, leftSpeed);
+  analogWrite(enbPin, rightSpeed);
 }
 
 void loop() {
-  // Our debug code to prove that the bot is running
+  // Debug code to demonstrate the movement of the bot
   moveForward();
   delay(6000);
   moveBackward();
@@ -38,42 +42,42 @@ void loop() {
   stopMoving();
 }
 
-// Bot moves forward
+// Function to move the bot forward
 void moveForward() {
-  digitalWrite(in1, HIGH);
-  digitalWrite(in2, LOW);
-  digitalWrite(in3, HIGH);
-  digitalWrite(in4, LOW);
+  digitalWrite(in1Pin, HIGH);
+  digitalWrite(in2Pin, LOW);
+  digitalWrite(in3Pin, HIGH);
+  digitalWrite(in4Pin, LOW);
 }
 
-// Bot moves backwards
+// Function to move the bot backward
 void moveBackward() {
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, HIGH);
-  digitalWrite(in3, LOW);
-  digitalWrite(in4, HIGH);
+  digitalWrite(in1Pin, LOW);
+  digitalWrite(in2Pin, HIGH);
+  digitalWrite(in3Pin, LOW);
+  digitalWrite(in4Pin, HIGH);
 }
 
-// Bot turns left
+// Function to turn the bot left
 void moveLeft() {
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, HIGH);
-  digitalWrite(in3, HIGH);
-  digitalWrite(in4, LOW);
+  digitalWrite(in1Pin, LOW);
+  digitalWrite(in2Pin, HIGH);
+  digitalWrite(in3Pin, HIGH);
+  digitalWrite(in4Pin, LOW);
 }
 
-// Bot turns right
+// Function to turn the bot right
 void moveRight() {
-  digitalWrite(in1, HIGH);
-  digitalWrite(in2, LOW);
-  digitalWrite(in3, LOW);
-  digitalWrite(in4, HIGH);
+  digitalWrite(in1Pin, HIGH);
+  digitalWrite(in2Pin, LOW);
+  digitalWrite(in3Pin, LOW);
+  digitalWrite(in4Pin, HIGH);
 }
 
-// Bot stops moving
+// Function to stop the bot
 void stopMoving() {
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, LOW);
-  digitalWrite(in3, LOW);
-  digitalWrite(in4, LOW);
-} 
+  digitalWrite(in1Pin, LOW);
+  digitalWrite(in2Pin, LOW);
+  digitalWrite(in3Pin, LOW);
+  digitalWrite(in4Pin, LOW);
+}
