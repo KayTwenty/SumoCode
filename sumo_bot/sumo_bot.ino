@@ -139,6 +139,8 @@ bool detectObstacle() {
   }
 }
 
+// CRISTIAN UPLOAD TEST
+
 // Function to print the distance in centimeters
 void printDistance(int distance) {
   Serial.print("Distance: ");
