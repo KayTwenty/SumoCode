@@ -44,7 +44,11 @@ void loop() {
   // Check for obstacle
   if (detectObstacle()) {
     moveForward();
+    delay(50);
   } else {
     forwardRotate();
   }
 }
+
+
+
