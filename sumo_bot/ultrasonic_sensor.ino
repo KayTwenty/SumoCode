@@ -20,18 +20,18 @@ bool detectObstacle() {
   printDistance(distance);
 
   // Check if an obstacle is within a certain range
-  if (distance > 0 && distance < targetDistance) {
-    targetDetected = true;
+  if (distance < targetDistance) {
     return true;  // Obstacle detected
   } else {
-    targetDetected = false;
     return false;  // No obstacle detected
   }
 }
 
 // Function to print the distance in centimeters
 void printDistance(int distance) {
+  delay(300);
+  Serial.println("----------------");
   Serial.print("Distance: ");
   Serial.print(distance);
-  Serial.print(" cm");
+  Serial.println("cm");
 }

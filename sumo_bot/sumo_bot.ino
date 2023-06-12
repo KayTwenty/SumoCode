@@ -17,8 +17,7 @@ const int leftSpeed = 255;   // Max speed for the left motor
 const int rightSpeed = 250;  // Reduced speed for the right motor
 
 // Obstacle tracking variables
-int targetDistance = 30;
-bool targetDetected = false;
+int targetDistance = 35; // In CM
 
 void setup() {
   // Set the motor control pins as output
@@ -44,15 +43,8 @@ void setup() {
 void loop() {
   // Check for obstacle
   if (detectObstacle()) {
-    if (targetDetected) {
-      moveForward();
-    } else {
-      delay(500);
-      hardRotate();
-    }
+    moveForward();
   } else {
-    stopMoving();
+    forwardRotate();
   }
-
-  delay(100);
 }
