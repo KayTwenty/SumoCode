@@ -1,8 +1,12 @@
+// Ultrasonic Sensor Pins
+const int triggerPin = 10;
+const int echoPin = 9;
+
+// Obstacle tracking variables
+int targetDistance = 35; // In CM
+
 // Function to detect an obstacle using the ultrasonic sensor
 bool detectObstacle() {
-  long duration;
-  int distance;
-
   // Trigger the ultrasonic sensor
   digitalWrite(triggerPin, LOW);
   delayMicroseconds(2);
@@ -11,10 +15,10 @@ bool detectObstacle() {
   digitalWrite(triggerPin, LOW);
 
   // Measure the echo response time
-  duration = pulseIn(echoPin, HIGH);
+  long duration = pulseIn(echoPin, HIGH);
 
   // Calculate the distance in centimeters
-  distance = duration * 0.034 / 2;
+  int distance = duration * 0.034 / 2;
 
   // Print the distance for debugging
   printDistance(distance);

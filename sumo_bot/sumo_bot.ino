@@ -8,16 +8,9 @@ const int enbPin = 3;
 const int in2Pin = 5;
 const int in1Pin = 7;
 
-// Ultrasonic Sensor Pins
-const int triggerPin = 10;
-const int echoPin = 9;
-
 // Speed Values
 const int leftSpeed = 255;   // Max speed for the left motor
 const int rightSpeed = 250;  // Reduced speed for the right motor
-
-// Obstacle tracking variables
-int targetDistance = 35; // In CM
 
 void setup() {
   // Set the motor control pins as output
@@ -34,6 +27,9 @@ void setup() {
   // Set the ultrasonic sensor pins as input and output
   pinMode(triggerPin, OUTPUT);
   pinMode(echoPin, INPUT);
+
+  // Set the line Sensor pins as input
+  pinMode(lineSensorPin, INPUT);
 
   // Set the speed control (0-255) for the motors
   analogWrite(enaPin, leftSpeed);
