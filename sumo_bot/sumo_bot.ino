@@ -8,6 +8,22 @@ const int enbPin = 3;
 const int in2Pin = 5;
 const int in1Pin = 7;
 
+// Ultrasonic Sensor Pins
+const int triggerPin = 10;
+const int echoPin = 9;
+
+// Obstacle tracking variables
+int targetDistance = 35; // In CM
+
+// Line Sensor Pins
+const int lineSensorPin = A0;
+
+// Threshold Value for Line Detection
+const int lineThreshold = 500;
+
+// Movement Duration when Correcting Position
+const int correctionDuration = 1000;
+
 // Speed Values
 const int leftSpeed = 255;   // Max speed for the left motor
 const int rightSpeed = 250;  // Reduced speed for the right motor

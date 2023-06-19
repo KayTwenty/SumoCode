@@ -1,10 +1,3 @@
-// Ultrasonic Sensor Pins
-const int triggerPin = 10;
-const int echoPin = 9;
-
-// Obstacle tracking variables
-int targetDistance = 35; // In CM
-
 // Function to detect an obstacle using the ultrasonic sensor
 bool detectObstacle() {
   // Trigger the ultrasonic sensor
