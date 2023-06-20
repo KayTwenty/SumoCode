@@ -15,7 +15,7 @@ const int echoPin = 9;
 // Obstacle tracking variables
 int targetDistance = 35; // In CM
 
-// Line detection degree variable
+// Line Turn duration degree variable
 //int 
 
 // Line Sensor Pins
@@ -58,8 +58,10 @@ void setup() {
 void loop() {
   // Check for obstacle
   if (detectObstacle() == false) {
+    // Deciding randomly to move counterclockwise or clockwise
     if (random(2) == 0) {
       while (detectObstacle() == false) {
+        //clockwise rotation
         forwardRotate();
         delay(100);
         stopMoving();
@@ -67,6 +69,7 @@ void loop() {
       }
     } else {
       while (detectObstacle() == false) {
+        //counterclockwise rotation
         reverseRotate();
         delay(100);
         stopMoving();
@@ -75,6 +78,7 @@ void loop() {
     }
   } else if (detectObstacle() == true) {
     moveForward();
+    
   }
 }
 
