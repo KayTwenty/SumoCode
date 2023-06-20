@@ -54,11 +54,24 @@ void setup() {
 
 void loop() {
   // Check for obstacle
-  if (detectObstacle()) {
+  if (detectObstacle() == false) {
+    if (random(2) == 0) {
+      while (detectObstacle() == false) {
+        forwardRotate();
+        delay(100);
+        stopMoving();
+        delay(50);
+      }
+    } else {
+      while (detectObstacle() == false) {
+        reverseRotate();
+        delay(100);
+        stopMoving();
+        delay(50);
+      }
+    }
+  } else if (detectObstacle() == true) {
     moveForward();
-    delay(50);
-  } else {
-    forwardRotate();
   }
 }
 
