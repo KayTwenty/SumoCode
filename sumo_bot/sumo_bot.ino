@@ -13,10 +13,7 @@ const int triggerPin = 10;
 const int echoPin = 9;
 
 // Obstacle tracking variables
-int targetDistance = 35; // In CM
-
-// Line Turn duration degree variable
-//int 
+int targetDistance = 35;  // In CM
 
 // Line Sensor Pins
 const int lineSensorPin = A0;
@@ -67,7 +64,7 @@ void loop() {
         stopMoving();
         delay(50);
       }
-    } else {
+    } else if (detectObstacle() == false) {
       while (detectObstacle() == false) {
         //counterclockwise rotation
         reverseRotate();
@@ -75,12 +72,11 @@ void loop() {
         stopMoving();
         delay(50);
       }
+    } else {
+      while (detectObstacle() == true) {
+        moveForward();
+        delay(100);
+      }
     }
-  } else if (detectObstacle() == true) {
-    moveForward();
-    
   }
 }
-
-
-
