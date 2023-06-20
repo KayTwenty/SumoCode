@@ -15,11 +15,15 @@ void moveBackward() {
 }
 
 // Function to turn the bot left
-void moveLeft() {
+void moveLeft(int degrees) {
+  int turnDuration = (int)((float)degrees / 90.0 * 1000.0);
   digitalWrite(in1Pin, LOW);
   digitalWrite(in2Pin, HIGH);
   digitalWrite(in3Pin, HIGH);
   digitalWrite(in4Pin, LOW);
+  delay(turnDuration);
+
+  stopMoving();
 }
 
 // Function to turn the bot right

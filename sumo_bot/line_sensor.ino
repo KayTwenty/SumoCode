@@ -14,7 +14,7 @@ void handleLineSensor() {
 
     // Randomly choose left or right turn
     if (random(2) == 0) {
-      moveLeft();
+      moveLeft(2);
     } else {
       moveRight();
     }

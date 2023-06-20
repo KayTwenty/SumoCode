@@ -15,6 +15,9 @@ const int echoPin = 9;
 // Obstacle tracking variables
 int targetDistance = 35; // In CM
 
+// Line detection degree variable
+//int 
+
 // Line Sensor Pins
 const int lineSensorPin = A0;
 
