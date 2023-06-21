@@ -59,7 +59,7 @@ void loop() {
         delay(50);
     }
   } else {
-    reverseRotate();
+    rotateCounterClockwise();
     delay(50);
     stopMoving();
     delay(50);
