@@ -17,7 +17,7 @@ bool detectObstacle() {
   printDistance(distance);
 
   // Check if an obstacle is within a certain range
-  if (distance > 0 && distance < targetDistance) {
+  if (distance > 2 && distance < targetDistance) {
     return true;  // Obstacle detected
   } else {
     return false;  // No obstacle detected

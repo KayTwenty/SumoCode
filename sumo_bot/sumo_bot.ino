@@ -16,7 +16,7 @@ const int echoPin = 9;
 int targetDistance = 35;  // In CM
 
 // Line Sensor Pins
-const int lineSensorPin = A0;
+const int lineSensorPin = 8;
 
 // Threshold Value for Line Detection
 const int lineThreshold = 500;
@@ -53,30 +53,15 @@ void setup() {
 }
 
 void loop() {
-  // Check for obstacle
-  if (detectObstacle() == false) {
-    // Deciding randomly to move counterclockwise or clockwise
-    if (random(2) == 0) {
-      while (detectObstacle() == false) {
-        //clockwise rotation
-        forwardRotate();
-        delay(100);
-        stopMoving();
-        delay(50);
-      }
-    } else if (detectObstacle() == false) {
-      while (detectObstacle() == false) {
-        //counterclockwise rotation
-        reverseRotate();
-        delay(100);
-        stopMoving();
-        delay(50);
-      }
-    } else {
-      while (detectObstacle() == true) {
+  if (detectObstacle()) {
+    for (int i = 1; i <= 3; ++i) {
         moveForward();
-        delay(100);
-      }
+        delay(50);
     }
+  } else {
+    reverseRotate();
+    delay(50);
+    stopMoving();
+    delay(50);
   }
 }
