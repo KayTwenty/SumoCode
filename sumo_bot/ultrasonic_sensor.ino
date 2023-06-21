@@ -24,10 +24,20 @@ bool detectObstacle() {
   }
 }
 
-// Function to print the distance in centimeters
+// Print the distance read from the ultrasonic sensor.
 void printDistance(int distance) {
   Serial.println("----------------");
   Serial.print("Distance: ");
   Serial.print(distance);
   Serial.println("cm");
+
+  // Calculate additional statistics rounded to two decimal places
+  float inches = distance / 2.54;
+  float feet = inches / 12;
+
+  // Print the additional statistics
+  Serial.print("Inches: ");
+  Serial.println(String(inches, 2));
+  Serial.print("Feet: ");
+  Serial.println(String(feet, 2));
 }
