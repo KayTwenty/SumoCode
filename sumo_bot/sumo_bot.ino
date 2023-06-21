@@ -19,7 +19,7 @@ int targetDistance = 35;  // In CM
 const int lineSensorPin = 8;
 
 // Threshold Value for Line Detection
-const int lineThreshold = 500;
+const int lineThreshold = 100;
 
 // Movement Duration when Correcting Position
 const int correctionDuration = 1000;
@@ -53,15 +53,16 @@ void setup() {
 }
 
 void loop() {
-  if (detectObstacle()) {
+  if (!digitalRead(lineSensorPin)) {
+    moveBackward();
+    delay(200);
+    rotateCounterClockwise();
+  } else if (detectObstacle()) {
     for (int i = 1; i <= 3; ++i) {
         moveForward();
-        delay(50);
+        //delay(50);
     }
   } else {
     rotateCounterClockwise();
-    delay(50);
-    stopMoving();
-    delay(50);
   }
 }
