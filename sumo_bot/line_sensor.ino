@@ -4,10 +4,10 @@
  * while lower values indicate a darker surface (the ring boundary).
  */
 void handleLightSensor() {
-  int lightSensorValue = analogRead(lightSensorPin);
+  int lightSensorValue = analogRead(lineSensorPin);
 
   // Check if the robot is outside the ring
-  if (lightSensorValue < lightThreshold) {
+  if (lightSensorValue < lineThreshold) {
     // Move backward to get back into the ring
     moveBackward();
     delay(correctionDuration);
