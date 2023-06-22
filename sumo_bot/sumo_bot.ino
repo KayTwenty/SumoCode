@@ -1,7 +1,6 @@
 // David Anton
 // Cristian Artiom
 // 2023 Sumo Code
-// 
 
 // Motor Pins - RIGHT
 const int enaPin = 6;
@@ -69,7 +68,7 @@ void loop() {
   } else if (detectObstacle()) {
     for (int i = 1; i <= 3; ++i) {
         moveForward();
-        //delay(50);
+        delay(50);
     }
   } else {
     rotateCounterClockwise();
