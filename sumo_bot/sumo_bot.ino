@@ -1,3 +1,8 @@
+// David Anton
+// Cristian Artiom
+// 2023 Sumo Code
+// 
+
 // Motor Pins - RIGHT
 const int enaPin = 6;
 const int in4Pin = 2;
@@ -50,9 +55,13 @@ void setup() {
   // Set the speed control (0-255) for the motors
   analogWrite(enaPin, leftSpeed);
   analogWrite(enbPin, rightSpeed);
+
+  // Five second delay for start
+  delay(5000);
 }
 
 void loop() {
+
   if (!digitalRead(lineSensorPin)) {
     moveBackward();
     delay(200);
